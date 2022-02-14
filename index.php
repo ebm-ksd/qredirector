@@ -58,6 +58,7 @@ final class index {
         $code = $request->URL[0];
         $Bd = new Bd();
         $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
+        die('url: ' .$url);
 
         if(!empty($url)){
             $this->Response->Location = $url;
