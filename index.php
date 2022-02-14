@@ -60,7 +60,7 @@ final class index {
 
         if($url != null){
             $this->Response->StatusCode = HTTPCodes::FOUND;
-            //$this->Response->Location = $url;
+            $this->Response->Location = $url;
             $this->Response->Body = array("code: " => $code, "url" => $url);
 
             print_r($this->Response);
