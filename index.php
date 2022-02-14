@@ -58,7 +58,7 @@ final class index {
             exit(header("Location: ". $url));
         }
 
-        throw new NotFoundException("El código no está registrado.", 1);
+        throw new NotFoundException("El código solicitado no está registrado en la base de datos. Inténtalo de nuevo más tarde.", 1);
     }
 }
 
