@@ -58,14 +58,14 @@ final class index {
         $Bd = new Bd();
         $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
 
-        //if($url != null){
+        if($url != null){
             $this->Response->StatusCode = HTTPCodes::OK;
-            $this->Response->Location = $url;
+            //$this->Response->Location = $url;
             $this->Response->Body = array("code: " => $code, "url" => $url);
 
             print_r($this->Response);
             exit($this->Response->send());
-        //}
+        }
 
         throw new NotFoundException("El código no está registrado.", 1);
     }
