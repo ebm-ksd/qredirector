@@ -46,7 +46,8 @@ final class index {
         spl_autoload_register(array($this, 'autoload_function'));
         
         $request = HTTPRequest::fromGlobals();
-        $this->Response = new HTTPResponse($request->Protocol);
+        //$this->Response = new HTTPResponse($request->Protocol);
+        $this->Response = new HTTPResponse();
 
         $this->Response->ContentType = "application/json; charset=UTF-8";
         $this->Response->addHeader("Access-Control-Allow-Origin", "*");
