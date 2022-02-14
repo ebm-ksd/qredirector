@@ -63,7 +63,7 @@ final class index {
             $this->Response->Location = $url;
             $this->Response->Body = array("code: " => $code, "url" => $url);
 
-            print_r($this->Response);
+            //print_r($this->Response);
             exit($this->Response->send());
         }
 

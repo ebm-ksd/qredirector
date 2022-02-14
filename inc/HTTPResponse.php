@@ -20,10 +20,10 @@ final class HTTPResponse {
     }
 
     public function send(): void {
-        header($this->Protocol." ".$this->StatusCode);
         if ($this->Location !== null) {
-            header("Location : ".$this->Location);
+            die(header("Location : ".$this->Location));
         }
+        header($this->Protocol." ".$this->StatusCode);
         if ($this->ContentType !== null) {
             header("Content-Type: ".$this->ContentType);
         }
