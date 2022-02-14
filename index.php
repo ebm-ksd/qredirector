@@ -58,9 +58,8 @@ final class index {
         $code = $request->URL[0];
         $Bd = new Bd();
         $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
-        die('url: ' .$url);
 
-        if(!empty($url)){
+        if($url != null){
             $this->Response->Location = $url;
             $this->Response->Body = array("code: " => $code, "url" => $url);
             $this->Response->StatusCode = HTTPCodes::FOUND;
