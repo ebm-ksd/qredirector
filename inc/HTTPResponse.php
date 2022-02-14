@@ -5,8 +5,8 @@ final class HTTPResponse {
     public $StatusCode = HTTPCodes::NO_CONTENT;
     public $Location = null;
     public $ContentType = null;
-    public $Body = null;
     public $Headers = null;
+    public $Body = null;
     
     public function __construct(string $protocol = "HTTP/1.1") {
         $this->Protocol = $protocol;
@@ -21,16 +21,16 @@ final class HTTPResponse {
 
     public function send(): void {
         header($this->Protocol." ".$this->StatusCode);
-        if ($this->Headers !== null) {
-            foreach ($this->Headers as $header => $val) {
-                header($header.": ".$val);
-            }
-        }
         if ($this->Location !== null) {
             header("Location : ".$this->Location);
         }
         if ($this->ContentType !== null) {
             header("Content-Type: ".$this->ContentType);
+        }
+        if ($this->Headers !== null) {
+            foreach ($this->Headers as $header => $val) {
+                header($header.": ".$val);
+            }
         }
         if ($this->Body !== null) {
             print(json_encode($this->Body));

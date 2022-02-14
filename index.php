@@ -24,6 +24,7 @@ final class index {
         } else {
             $this->Response->StatusCode = HTTPCodes::INTERNAL_SERVER_ERROR;
         }
+        $this->Response->ContentType = "application/json; charset=UTF-8";
         $this->Response->Body = array("error" => $ex->getMessage());
         exit($this->Response->send());
     }
@@ -50,9 +51,9 @@ final class index {
         $this->Response = new HTTPResponse();
 
         $this->Response->ContentType = "application/json; charset=UTF-8";
-        $this->Response->addHeader("Access-Control-Allow-Origin", "*");
-        $this->Response->addHeader("Access-Control-Allow-Methods", "GET");
-        $this->Response->addHeader("Access-Control-Max-Age", "3600");
+        //$this->Response->addHeader("Access-Control-Allow-Origin", "*");
+        //$this->Response->addHeader("Access-Control-Allow-Methods", "GET");
+        //$this->Response->addHeader("Access-Control-Max-Age", "3600");
                 
         $code = $request->URL[0];
         $Bd = new Bd();
