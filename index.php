@@ -47,9 +47,8 @@ final class index {
         spl_autoload_register(array($this, 'autoload_function'));
         
         $request = HTTPRequest::fromGlobals();
-        //$this->Response = new HTTPResponse($request->Protocol);
-        $this->Response = new HTTPResponse();
-
+        $this->Response = new HTTPResponse($request->Protocol);
+        
         $this->Response->ContentType = "application/json; charset=UTF-8";
         //$this->Response->addHeader("Access-Control-Allow-Origin", "*");
         //$this->Response->addHeader("Access-Control-Allow-Methods", "GET");
@@ -60,7 +59,7 @@ final class index {
         $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
 
         //if($url != null){
-            $this->Response->StatusCode = HTTPCodes::FOUND;
+            $this->Response->StatusCode = HTTPCodes::OK;
             $this->Response->Location = $url;
             $this->Response->Body = array("code: " => $code, "url" => $url);
 
