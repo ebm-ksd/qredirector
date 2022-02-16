@@ -52,7 +52,7 @@ final class index {
                 
         $code = $request->URL[0];
         $Bd = new Bd();
-        $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
+        $url = $Bd->seleccionar("codigos", "id = '$code'", "url_code")->fetch()['url_code'];
 
         if($url != null){
             $Bd->actualizar("codigos", "hits += 1", "id = '$code'");
