@@ -55,6 +55,7 @@ final class index {
         $url = $Bd->seleccionar("codigos", "id = '$code'", "url")->fetch()['url'];
 
         if($url != null){
+            $Bd->actualizar("codigos", "hits += 1", "id = '$code'");
             exit(header("Location: ". $url));
         }
 
